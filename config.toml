@@ -1,0 +1,100 @@
+baseurl = "http://localhost:1313/"
+title = "Riko's Blog"
+theme = "hugo-theme-cleanwhite"
+languageCode = "en-us"
+preserveTaxonomyNames = true
+hasCJKLanguage = true
+
+[services]
+  # Enable comments by entering your Disqus shortname
+  [services.disqus]
+    shortname = ""
+  [services.googleAnalytics]
+    id = ""
+
+[pagination]
+  pagerSize = 5 # frontpage pagination
+
+[outputs]
+home = ["HTML", "RSS", "Algolia"]
+
+[params]
+  header_image = "img/home_riko.jpg"
+  copyright = "Riko Xu"
+  SEOTitle = "Riko's Blog"
+  description = "Riko Xu, a lover"
+  slogan = 'I am who I am'
+  google_fonts = ""
+  upstreamAttribution = true
+
+  image_404 = "img/404-cat.jpg"
+  title_404 = "As a cat, I cannot find this page."
+  omit_categories = false
+
+  # leancloud storage for page view counter
+  page_view_counter = false
+  leancloud_app_id = ""
+  leancloud_app_key = ""
+
+  # algolia site search
+  algolia_search = true
+  algolia_appId = ""
+  algolia_indexName = ""
+  algolia_apiKey = ""
+
+  # Sidebar settings
+  sidebar_about_description = "Riko (Wan-ting) Xu"
+  sidebar_avatar = "img/riko1.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+  featured_tags = true 
+  featured_condition_size = 1 
+  
+  # Follow https://github.com/zhaohuabing/disqus-php-api to set up your own disqus proxy
+  disqus_proxy = ""
+  disqus_site = ""
+
+  bookmarks = false
+  about_me = true
+
+  [params.social]
+  rss            = true 
+  email          = "rikoxu@outlook.com"
+  linkedin       = "http://www.linkedin.com/in/wanting-xu-836495163"
+  github         = "https://github.com/rikoxu01"
+  wechat         = "riko_xu"
+
+  [[params.additional_menus]]
+  title =  "READINGS"
+  href =  "content/readings/"
+
+  [[params.additional_menus]]
+  title =  "GALLERY"
+  href =  "content/notes/"
+
+  [[params.additional_menus]]
+  title =  "FOOTPRINT"
+  href =  "content/footprint/"
+
+  [[params.additional_menus]]
+  title =  "ABOUT"
+  href =  "content/about/"
+
+[outputFormats.Algolia]
+baseName = "algolia"
+isPlainText = true
+mediaType = "application/json"
+notAlternative = true
+
+[params.algolia]
+vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+params = ["categories", "tags"] 
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 2
+    startLevel = 1
+  [markup.highlight]
+    style = "dracula"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
